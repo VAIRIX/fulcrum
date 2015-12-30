@@ -293,6 +293,27 @@ div.story-icons {
 div.story-controls {
   padding: 10px 0;
 }
+
+div.story-id {
+  background-color: #ccc;
+  border-radius: 2px;
+  border: 1px solid #828282;
+  margin-bottom: 8px;
+
+  .id-btn {
+    background-color: #5e5e5e;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 5px;
+    padding: 2px 4px;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
 div.story-title {
   margin-left: 50px;
 }
