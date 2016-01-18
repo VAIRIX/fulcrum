@@ -22,6 +22,10 @@ Fulcrum.Story = Backbone.Model.extend({
   },
 
   matchesSearch: function(params) {
+    if (params.id) {
+      return this.get('id').toString() === params.id;
+    }
+
     var matchesTags = true;
     var matchesText = true;
 
