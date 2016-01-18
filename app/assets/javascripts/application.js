@@ -11,6 +11,7 @@
 //= require backbone
 //= require backbone.rails
 //= require Markdown.Converter
+//= require clipboard
 //= require_tree ./templates
 //= require_tree ./mixins
 //= require_tree ./models
