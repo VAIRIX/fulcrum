@@ -212,6 +212,9 @@ Fulcrum.StoryView = Fulcrum.FormView.extend({
   },
 
   cancelEdit: function() {
+    if (this.clipboard)
+      this.clipboard.destroy();
+
     this.model.set({editing: false});
 
     // If the model was edited, but the edits were deemed invalid by the
@@ -294,6 +297,42 @@ Fulcrum.StoryView = Fulcrum.FormView.extend({
           $(div).append(this.cancel());
         })
       );
+
+      if (this.model.id) {
+        var that = this;
+
+        this.$el.append(
+          this.makeFormControl(function (div) {
+            var copyButton = $('<button class="id-btn">ID</button>');
+
+            that.clipboard = new Clipboard(copyButton[0], {
+              text: function () {
+                return '#' + that.model.id;
+              }
+            });
+
+            that.clipboard.on('success', function() {
+              copyButton.tooltip({
+                title: I18n.t('copied'),
+                placement: 'bottom',
+                trigger: 'manual',
+                delay: { show: 500 }
+              });
+
+              copyButton.tooltip('show');
+
+              setTimeout(function() {
+                copyButton.tooltip('destroy');
+              }, 2000);
+            });
+
+            $(div)
+              .addClass('story-id')
+              .append(copyButton)
+              .append('<span>#' + this.model.id + '</span>');
+          })
+        );
+      }
 
       this.$el.append(
         this.makeFormControl(function(div) {
@@ -411,6 +450,9 @@ Fulcrum.StoryView = Fulcrum.FormView.extend({
   disableForm: function() {
     this.$el.find('input,select,textarea').attr('disabled', 'disabled');
     this.$el.find('a.collapse,a.expand').removeClass(/icons-/).addClass('icons-throbber');
+
+    if (this.clipboard)
+      this.clipboard.destroy();
   },
 
   enableForm: function() {

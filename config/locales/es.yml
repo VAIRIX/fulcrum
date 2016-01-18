@@ -10,6 +10,7 @@ es:
   import:   "Importa"
   export:   "Exporta"
   search:   "Busca..."
+  copied:   "¡Copiado!"
 
   author unknown: "Autor desconocido"
 
