@@ -258,7 +258,7 @@ describe('Project model', function() {
     });
 
     it("should return velocity", function() {
-      var doneIterations = _.map([1,2,3,4,5], function(i) {
+      var doneIterations = _.map([1,2,3,4,5,6,7,8,9,10], function(i) {
         return {points: sinon.stub().returns(i)};
       });
       var doneIterationsStub = sinon.stub(this.project, 'doneIterations');
