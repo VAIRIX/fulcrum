@@ -11,6 +11,8 @@ Configuration.for('fulcrum') do
   # Env var DISABLE_REGISTRATION
   #disable_registration false
 
+  # Disble delete projects
+  #disable_delete_projects false
   # Project column order:
   # progress_to_right: chilly bin, backlog, in progress, done
   # progress_to_left: done, in progress, backlog, chilly bin
