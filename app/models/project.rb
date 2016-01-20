@@ -12,7 +12,7 @@ class Project < ActiveRecord::Base
   POINT_SCALES = {
     'fibonacci'     => [0,1,2,3,5,8].freeze,
     'powers_of_two' => [0,1,2,4,8].freeze,
-    'linear'        => [0,1,2,3,4,5].freeze,
+    'linear'        => [0,1,2,3,4,5,6,7,8,9,10].freeze,
   }.freeze
 
   validates_inclusion_of :point_scale, :in => POINT_SCALES.keys,
